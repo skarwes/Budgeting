@@ -3,3 +3,4 @@ venv/
 pycache/
 *.py[cod]
 .env
+Database/budget.db
