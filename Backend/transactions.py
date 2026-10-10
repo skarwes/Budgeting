@@ -1,7 +1,10 @@
 from Database.db import get_connection
+from datetime import datetime
 
 
-def insert_trans(date, description, category, ammount):
+def insert_trans(description, category, ammount):
+    #Automatically gets the date on which the transaction is added
+    date = datetime.now().strftime('%d/%m/%Y')
     with get_connection() as connection:
         tables = connection.execute("""
         INSERT INTO transactions
@@ -16,7 +19,7 @@ def get_trans(category):
         transactions = connection.execute("""
         SELECT date, description, category, amount
         FROM transactions
-        WHERE description = ?
+        WHERE category = ?
     """, (category,)).fetchall()
     return transactions
     
