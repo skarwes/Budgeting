@@ -1,6 +1,6 @@
 .venv/
 venv/
-pycache/
+__pycache__/
 *.py[cod]
 .env
 Database/budget.db
